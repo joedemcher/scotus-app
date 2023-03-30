@@ -1,3 +1,6 @@
 certificates/
 data/
 
+.web
+pynecone.db
+__pycache__

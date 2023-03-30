@@ -1,0 +1,12 @@
+{
+  "name": "scotus-app",
+  "version": "1.0.0",
+  "description": "An application designed to allow people to search for any combination of Supreme Court of the United States opinions from the mid-1940s to the present day.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
