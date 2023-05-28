@@ -1,16 +1,19 @@
 from pcconfig import config
 
+import json
+import pandas as pd
 import pynecone as pc
 
 # docs_url = "https://pynecone.io/docs/getting-started/introduction"
 # filename = f"{config.app_name}/{config.app_name}.py"
 courts = ["Roberts Court", "Warren Court", "Burger Court"]
 sides = ["Majority", "Minority"]
+cases = pd.read_json("data/cases.json")
+
 
 class State(pc.State):
     """The app state."""
     judges = ["John Roberts", "Neil Gorsuch", "Elena Kagan", "Sonya Sotomayor"]
-    pass
 
 class Judges(pc.State):
     judges = ["John Roberts", "Neil Gorsuch", "Elena Kagan", "Sonya Sotomayor"]
@@ -46,6 +49,12 @@ def index() -> pc.Component:
             pc.hstack(
                 pc.vstack(
                     pc.foreach(State.judges, judge_selection),
+                ),
+                pc.data_table(
+                    data=cases.T,
+                    pagination=True,
+                    search=True,
+                    sort=True,
                 ),
                 pc.vstack(
                     pc.foreach(State.judges, judge_selection),
